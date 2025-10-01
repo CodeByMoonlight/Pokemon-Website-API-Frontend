@@ -26,7 +26,7 @@ This Pokemon Website is a full-stack application that allows users to explore Po
 - **/**
   - The homepage displaying a list of Pokemon. Users can browse through the list and select a Pokemon to view its details.
 - **/view/:pokemonId**
-  - Displays detailed information about a specific Pokemon, including its stats, abilities, and custom story (if available).
+  - Displays detailed information about a specific Pokemon, including its stats, abilities, and story.
 - **/memory-game**
   - A fun memory game featuring Pokemon cards. Users can test their memory skills by matching pairs of Pokemon.
 - **/pokedex**
@@ -44,18 +44,15 @@ This Pokemon Website is a full-stack application that allows users to explore Po
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/CodeByMoonlight/Pokemon-API-Website-Frontend.git
+   git clone https://github.com/CodeByMoonlight/Pokemon-Website-API-Frontend.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Pokemon-API-Website
+   cd Pokemon-Website-API-Frontend
    ```
 3. Install dependencies for both the client and server:
-
    ```bash
    cd client && npm install
-
-   ```
 
 4. Start the development servers:
    - For the client:
