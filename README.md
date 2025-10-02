@@ -6,7 +6,6 @@
 - [Frameworks and Technologies](#frameworks-and-technologies)
 - [Routes](#routes)
 - [Features](#features)
-- [How to Run](#how-to-run)
 - [Acknowledgments](#acknowledgments)
 - [Academic Context](#academic-context)
 - [Contributors](#contributors)
@@ -40,26 +39,6 @@ This Pokemon Website is a full-stack application that allows users to explore Po
 - **Integration with PokeAPI**: Fetches real-time data about Pokemon from the PokeAPI.
 - **Responsive Design**: Ensures the website is accessible on various devices.
 
-## How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/CodeByMoonlight/Pokemon-Website-API-Frontend.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Pokemon-Website-API-Frontend
-   ```
-3. Install dependencies for both the client and server:
-   ```bash
-   cd client && npm install
-
-4. Start the development servers:
-   - For the client:
-     ```bash
-     npm run dev
-     ```
-5. Open the application in your browser at `http://localhost:5173/`.
 
 ## Acknowledgments
 
