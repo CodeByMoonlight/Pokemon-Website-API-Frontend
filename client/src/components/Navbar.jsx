@@ -80,7 +80,7 @@ export default function Navbar() {
       </div>
       <div className="flex flex-row gap-2">
         <a
-          href="https://github.com/CodeByMoonlight/Pokemon-API-Website"
+          href="https://github.com/CodeByMoonlight/Pokemon-Website-API-Frontend"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-item-btn"
