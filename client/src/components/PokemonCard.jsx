@@ -8,7 +8,7 @@ import {
 
 export default function PokemonCard({ pokemon, className = "" }) {
   const baseCardClasses =
-    "text-text-primary w-68 flex h-[330px] flex-col gap-3 rounded-lg border-2 border-gray-200 bg-white p-3 transition-transform duration-300 hover:shadow-[9px_9px_9px_0px_rgba(0,0,0,0.10)]";
+    "text-text-primary w-68 flex h-[330px] flex-col gap-3 rounded-lg border-2 border-gray-200 bg-white p-3 transition-transform duration-300 hover:drop-shadow-xl hover-drop-shadow-gray-50";
   const hoverScaleClass = className === "" ? "hover:scale-105" : "";
   const primaryType = getPrimaryType(pokemon.types);
 

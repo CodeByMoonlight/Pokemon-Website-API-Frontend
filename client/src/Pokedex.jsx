@@ -78,6 +78,7 @@ export default function Pokedex() {
         setPokemonCard(card);
       } catch (err) {
         setError("Failed to fetch Pokemon");
+        console.error("Error fetching Pokemon:", err);
       }
     };
 
@@ -127,8 +128,8 @@ export default function Pokedex() {
           onClick={() => goToPage(i)}
           className={`h-10 w-10 rounded-md transition-colors ${
             i === currentPage
-              ? "bg-pokeball-blue text-white"
-              : "text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue border-2 bg-white hover:text-white"
+              ? "bg-pokeball-blue cursor-not-allowed text-white"
+              : "text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue cursor-pointer border-2 bg-white hover:text-white"
           }`}
         >
           {i}
@@ -137,12 +138,12 @@ export default function Pokedex() {
     }
 
     return (
-      <div className="flex items-center justify-center gap-4 py-4">
+      <div className="flex items-center justify-center gap-4 py-4 transition-colors duration-300 ease-in-out">
         {/* Left Arrow */}
         {currentPage > 1 && (
           <button
             onClick={handlePreviousPage}
-            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 rounded-md border-2 bg-white hover:text-white"
+            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
           >
             <FaChevronLeft className="m-auto text-xs sm:text-sm xl:text-sm" />
           </button>
@@ -152,7 +153,7 @@ export default function Pokedex() {
           <>
             <button
               onClick={() => goToPage(1)}
-              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 rounded-md border-2 bg-white hover:text-white"
+              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
             >
               1
             </button>
@@ -167,7 +168,7 @@ export default function Pokedex() {
             {endPage < totalPages - 1 && <span className="px-2">...</span>}
             <button
               onClick={() => goToPage(totalPages)}
-              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 rounded-md border-2 bg-white hover:text-white"
+              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
             >
               {totalPages}
             </button>
@@ -178,7 +179,7 @@ export default function Pokedex() {
         {currentPage < totalPages && (
           <button
             onClick={handleNextPage}
-            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 rounded-md border-2 bg-white hover:text-white"
+            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
           >
             <FaChevronRight className="m-auto text-xs sm:text-sm xl:text-sm" />
           </button>
@@ -280,14 +281,14 @@ export default function Pokedex() {
           <h2 className="text-3xl font-bold sm:text-4xl">
             Explore Pokémon stats, abilities, and evolutions
           </h2>
-          <p className="max-w-[36rem] font-medium">
+          <p className="max-w-xl font-medium">
             Dive into the Pokémon universe with our complete Pokédex. Learn
             about each Pokémon’s stats, abilities, and evolution paths all in
             one place.
           </p>
           <Input
             placeholder="Search Pokémon by name..."
-            className="text-text-primary max-w-[36rem] border border-gray-300 bg-white px-4 py-2 placeholder:text-gray-500"
+            className="text-text-primary max-w-xl border border-gray-300 bg-white px-4 py-2 placeholder:text-gray-500"
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
           />
@@ -295,7 +296,7 @@ export default function Pokedex() {
       </div>
 
       {/* Body */}
-      <div className="flex max-w-[72rem] flex-col items-center justify-center">
+      <div className="flex max-w-6xl flex-col items-center justify-center">
         <div className="flex w-full flex-row items-center justify-between py-4">
           <h3 className="text-text-primary text-2xl font-bold">Pokémon List</h3>
           {/* Upper Pagination & Arrows - Show if user is not searching*/}

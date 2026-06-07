@@ -5,7 +5,7 @@ const ProgressBar = ({ progress, isVisible }) => {
     <div className="fixed left-0 top-0 z-50 w-full">
       <div className="h-1 bg-gray-200">
         <div
-          className="from-text-secondary to-text-tertiary h-full bg-gradient-to-r transition-all duration-300 ease-out"
+          className="from-text-secondary to-text-tertiary bg-linear-to-r h-full transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>

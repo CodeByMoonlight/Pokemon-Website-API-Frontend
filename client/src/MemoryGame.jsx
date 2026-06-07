@@ -93,6 +93,7 @@ export default function MemoryGame() {
       setPokemonCards(shuffledCards);
     } catch (err) {
       setError("Failed to fetch Pokemon");
+      console.error("Error fetching Pokemon:", err);
     }
   };
 
@@ -168,9 +169,9 @@ export default function MemoryGame() {
       </div>
 
       {/* Body */}
-      <div className="relative z-10 mt-24 flex flex-col items-center xl:h-[42rem]">
+      <div className="xl:h-168 relative z-10 mt-24 flex flex-col items-center">
         {/* Game Header */}
-        <div className="w-full px-8 xl:w-[77.5rem]">
+        <div className="xl:w-310 w-full px-8">
           <div className="flex flex-row items-center justify-between gap-4">
             <div className="flex flex-row items-center justify-center gap-6">
               <div className="stat">Score: {score}</div>
@@ -213,7 +214,7 @@ export default function MemoryGame() {
         </Dialog>
 
         {/* Game Board */}
-        <div className="relative z-10 -m-2 flex w-full flex-wrap justify-center xl:max-w-[88rem]">
+        <div className="xl:max-w-352 relative z-10 -m-2 flex w-full flex-wrap justify-center">
           {pokemonCards.map((card) => (
             <div
               key={card.cardId}
@@ -225,7 +226,7 @@ export default function MemoryGame() {
               >
                 {/* Card Back - Visible when not flipped */}
                 <div className="backface-hidden">
-                  <div className="bg-pokeball-blue w-68 scale-85 h-[20.625rem] rounded-lg border-2 border-gray-300 p-4 shadow-lg transition-shadow hover:shadow-xl">
+                  <div className="bg-pokeball-blue w-68 scale-85 h-82.5 rounded-lg border-2 border-gray-300 p-4 shadow-lg transition-shadow hover:shadow-xl">
                     <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-lg border-4 border-white">
                       <img
                         src="/assets/Pokemon.svg"

@@ -63,6 +63,7 @@ function App() {
       } catch (error) {
         setError("Failed to fetch Pokemon");
         setLoading(false);
+        console.error("Error fetching Pokemon:", error);
       }
     };
 
