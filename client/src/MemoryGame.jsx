@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PokemonCard from "./components/PokemonCard.jsx";
-import Navbar from "./components/navbar.jsx";
+import Navbar from "./components/Navbar.jsx";
 import AudioPlayer from "./components/AudioPlayer.jsx";
 import {
   Dialog,

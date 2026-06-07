@@ -1,6 +1,6 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
-import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosArrowBack } from "react-icons/io";
@@ -118,7 +118,6 @@ export default function PokemonView() {
                 .flat(),
             ),
           ).map((name) => ({ name })),
-          story: defaultStory,
           evolutionChain: evolutions,
           hasCustomStory: false,
         });
