@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PokemonCard from "./components/PokemonCard.jsx";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import Navbar from "./components/navbar.jsx";
+import Navbar from "./components/Navbar.jsx";
 import AudioPlayer from "./components/AudioPlayer.jsx";
 import { Input } from "@/components/ui/input";
 import { CircleChevronRight } from "lucide-react";
