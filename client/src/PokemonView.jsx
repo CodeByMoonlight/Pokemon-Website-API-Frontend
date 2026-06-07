@@ -23,6 +23,7 @@ import {
   getStatColors,
   getPrimaryType,
 } from "./utils/pokemonTypes";
+import { getJapaneseName } from "./utils/pokemonNames";
 
 export default function PokemonView() {
   const { pokemonId } = useParams();
@@ -78,9 +79,7 @@ export default function PokemonView() {
         setPokemon({
           id: details.id,
           en_name: details.name,
-          jp_name:
-            speciesData.names.find((name) => name.language.name === "ja-Hrkt")
-              ?.name || details.name,
+          jp_name: getJapaneseName(speciesData, details.name),
           sprite: details.sprites.other["official-artwork"].front_default,
           types: details.types.map((t) => t.type.name),
           story: defaultStory,

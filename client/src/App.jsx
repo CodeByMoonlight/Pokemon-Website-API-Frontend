@@ -9,6 +9,7 @@ import AudioPlayer from "./components/AudioPlayer.jsx";
 import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import ScrollReveal from "./components/ScrollReveal.jsx";
+import { getJapaneseName } from "./utils/pokemonNames";
 
 function App() {
   // State for Pokemon data
@@ -46,10 +47,7 @@ function App() {
             card.push({
               id: details.id,
               en_name: details.name,
-              jp_name:
-                speciesData.names.find(
-                  (name) => name.language.name === "ja-Hrkt",
-                )?.name || details.name,
+              jp_name: getJapaneseName(speciesData, details.name),
               sprite: details.sprites.other["official-artwork"].front_default,
               types: details.types.map((t) => t.type.name),
               habitat: speciesData.habitat?.name || "unknown",
@@ -62,7 +60,7 @@ function App() {
 
         setPokemonCard(card);
         setLoading(false);
-      } catch (err) {
+      } catch (error) {
         setError("Failed to fetch Pokemon");
         setLoading(false);
       }
@@ -124,7 +122,7 @@ function App() {
           <h2 className="Russo-One text-4xl font-bold sm:text-5xl md:text-6xl xl:text-7xl">
             Catch 'Em All Online
           </h2>
-          <p className="max-w-3/5 mb-4 text-sm font-semibold sm:text-base md:text-lg">
+          <p className="max-w-3/5 mb-4 font-semibold leading-7 sm:text-base md:text-lg md:leading-8">
             Explore the complete Pokédex, challenge yourself with fun memory
             games, and see just how well you know your favorite Pokémon.
           </p>
@@ -139,7 +137,7 @@ function App() {
         <img
           src="/assets/hero.gif"
           alt="hero_img"
-          className="h-[42.5rem] w-screen bg-cover bg-center object-cover sm:h-[48.75rem] md:h-[55rem] lg:h-[61.25rem] xl:h-[67.5rem]"
+          className="h-170 sm:h-195 md:h-220 lg:h-245 xl:h-270 w-screen bg-cover bg-center object-cover"
         />
       </div>
 
@@ -149,7 +147,7 @@ function App() {
         <ScrollReveal direction="fade" duration={1000}>
           <div
             id="pokedex"
-            className="flex max-w-[72rem] flex-col items-center justify-center gap-10 pt-16 sm:pt-20"
+            className="flex max-w-6xl flex-col items-center justify-center gap-10 pt-16 sm:pt-20"
           >
             <div className="flex flex-col gap-12">
               <ScrollReveal direction="up" delay={200}>
@@ -168,7 +166,7 @@ function App() {
                     />
                   </div>
 
-                  <p className="subtitle xl:w-7/10 lg:w-9/10 px-2 text-sm sm:px-4 sm:text-base md:px-6 md:text-base">
+                  <p className="subtitle xl:w-8/10 lg:w-9/10 px-2 leading-7 sm:px-4 sm:text-base md:px-6 md:text-lg md:leading-8">
                     The Pokédex is your ultimate guide to the world of Pokémon.
                     Browse through a complete collection of Pokémon, each with
                     detailed information on their types, abilities, stats,
@@ -212,11 +210,11 @@ function App() {
         <ScrollReveal direction="up" duration={1700}>
           <div
             id="game"
-            className="flex max-w-[80rem] flex-col items-center justify-center gap-10 px-8 pt-20 lg:flex-row"
+            className="flex max-w-7xl flex-col items-center justify-center gap-10 px-8 pt-20 md:flex-row"
           >
-            <div className="w-max-[46rem] order-2 flex flex-col items-center justify-center gap-5 text-center lg:order-1">
+            <div className="w-max-[46rem] order-2 flex flex-col items-center justify-center gap-5 text-center md:order-1">
               <h1 className="header text-5xl md:text-6xl">MEMORY GAME</h1>
-              <p className="subtitle mb-5 text-sm sm:text-base">
+              <p className="subtitle mb-5 leading-7 sm:text-base md:text-lg md:leading-8">
                 Challenge yourself to match all the Pokémon pairs hidden on the
                 board. Stay sharp, move fast, and prove that your memory is as
                 strong as your battling skills
@@ -231,7 +229,7 @@ function App() {
               </NavigationLink>
             </div>
 
-            <div className="xl:max-w-1/2 order-1 max-w-[28rem] lg:order-2">
+            <div className="xl:max-w-1/2 order-1 max-w-md lg:order-2">
               <img
                 src="/assets/memory.png"
                 alt="memory game"
@@ -247,18 +245,18 @@ function App() {
         <img
           src="/assets/transition.svg"
           alt="logo"
-          className="absolute left-0 top-0 w-full rotate-180 object-cover sm:h-[32rem] lg:h-[40rem]"
+          className="sm:h-128 lg:h-160 absolute left-0 top-0 w-full rotate-180 object-cover"
         />
 
         <img
           src="/assets/Pokemon Logo Pixel.png"
           alt="logo"
-          className="lg:top-76 absolute bottom-0 top-44 w-[20rem] object-cover sm:top-52 sm:w-[25rem] md:w-[32rem] xl:top-80"
+          className="lg:top-76 sm:w-100 md:w-lg absolute bottom-0 top-44 w-[20rem] object-cover sm:top-52 xl:top-80"
         />
 
         <img
           src="/assets/footer_img.gif"
-          className="h-[32rem] w-screen bg-cover bg-center object-cover object-top sm:h-[34rem] md:h-[40rem] lg:h-[46rem] xl:h-[50rem]"
+          className="h-128 sm:h-136 md:h-160 lg:h-184 xl:h-200 w-screen bg-cover bg-center object-cover object-top"
         />
         <Footer />
       </div>

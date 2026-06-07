@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`z-1 fixed left-0 right-0 top-0 mx-5 flex flex-row items-center justify-between rounded-2xl bg-white/60 p-2 backdrop-blur-sm transition-transform duration-300 ${showNavbar ? "translate-y-5" : "-translate-y-full"}`}
+      className={`z-1 fixed left-0 right-0 top-0 mx-5 flex flex-row items-center justify-between rounded-full bg-white/60 p-2 backdrop-blur-sm transition-transform duration-300 ${showNavbar ? "translate-y-5" : "-translate-y-full"}`}
     >
       <div className="">
         <Link

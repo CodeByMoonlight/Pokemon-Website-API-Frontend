@@ -9,6 +9,7 @@ import { CircleChevronRight } from "lucide-react";
 import { CircleChevronLeft } from "lucide-react";
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+import { getJapaneseName } from "./utils/pokemonNames";
 
 export default function Pokedex() {
   // State for Pokemon data
@@ -63,10 +64,7 @@ export default function Pokedex() {
             card.push({
               id: details.id,
               en_name: details.name,
-              jp_name:
-                speciesData.names.find(
-                  (name) => name.language.name === "ja-Hrkt",
-                )?.name || details.name,
+              jp_name: getJapaneseName(speciesData, details.name),
               sprite: details.sprites.other["official-artwork"].front_default,
               types: details.types.map((t) => t.type.name),
               habitat: speciesData.habitat?.name || "unknown",
@@ -227,10 +225,7 @@ export default function Pokedex() {
               searchCards.push({
                 id: details.id,
                 en_name: details.name,
-                jp_name:
-                  speciesData.names.find(
-                    (name) => name.language.name === "ja-Hrkt",
-                  )?.name || details.name,
+                jp_name: getJapaneseName(speciesData, details.name),
                 sprite: details.sprites.other["official-artwork"].front_default,
                 types: details.types.map((t) => t.type.name),
                 habitat: speciesData.habitat?.name || "unknown",

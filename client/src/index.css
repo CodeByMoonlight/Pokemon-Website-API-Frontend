@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Bungee&display=swap');
-@import "tailwindcss";
 @import "tw-animate-css";
 
 @theme {
@@ -265,13 +264,15 @@
 }
 
 @font-face {
-  font-family: pokemon-font;
-  src: url(/assets/PressStart2P-Regular.ttf);
+  font-family: "Pokemon Font";
+  src: local("Press Start 2P"), url("/assets/PressStart2P-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: Russo One;
-  src: url(/assets/RussoOne-Regular.ttf);
+  font-family: "Russo One Local";
+  src: local("Russo One"), url("/assets/RussoOne-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @keyframes flicker {
@@ -330,13 +331,13 @@ body {
 
 /* Typography */
 .game-font {
-  font-family: pokemon-font;
+  font-family: "Pokemon Font", "Press Start 2P", cursive;
   color: #ffffff;
   animation: flicker 1s infinite;
 }
 
 .Russo-One {
-  font-family: Russo One;
+  font-family: "Russo One Local", "Russo One", sans-serif;
 }
 
 .game-font:hover {
@@ -360,8 +361,6 @@ body {
 
 .subtitle {
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.75rem;
   color: var(--color-text-primary);
 }
 
@@ -376,14 +375,17 @@ body {
 }
 
 .main-btn {
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
   background-color: var(--color-pokeball-red);
   cursor: pointer;
   color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 .main-btn:hover {
+  transition: background-color 0.3s ease;
   background-color: var(--color-pokeball-dark-red);
 }
 
@@ -395,16 +397,18 @@ body {
   font-family: "Roboto", sans-serif;
   width: fit-content;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 12rem;
   letter-spacing: 0.125rem;
   justify-content: center;
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-item:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
   background-color: rgba(255, 255, 255, 0.5);
   color: var(--color-pokeball-blue);
 }
@@ -423,14 +427,14 @@ body {
   flex-direction: row;
   gap: 0.75rem;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-item-btn:hover {
-  background-color: var(--color-pokeball-blue);
   color: #ffffff;
 
   .icon{
-    color: #ffffff;
+    color: var(--color-pokeball-blue);;
   }
 }
 
