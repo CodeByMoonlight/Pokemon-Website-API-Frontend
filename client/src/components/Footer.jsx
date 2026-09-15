@@ -19,7 +19,7 @@ export default function Footer() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <img src="/assets/logo.png" alt="logo" className="w-24" />
+          <img src="/assets/logo.png" alt="logo" className="w-16 sm:w-24" />
         </Link>
       </div>
       <div className="flex w-1/3 flex-row justify-center gap-0 sm:gap-5">
@@ -65,8 +65,9 @@ export default function Footer() {
         </a>
       </div>
       <div className="w-1/3 text-right">
-        <p className="text-text-primary text-[0.625rem] font-semibold sm:text-base">
-          © 2025 All Rights Reserved
+        <p className="text-text-primary text-sm font-semibold sm:text-base">
+          <span className="sm:hidden">©2025</span>
+          <span className="hidden sm:block">©2025 All Rights Reserved</span>
         </p>
       </div>
     </nav>

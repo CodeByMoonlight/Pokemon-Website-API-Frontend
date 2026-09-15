@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import PokemonCard from "./components/PokemonCard.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -34,7 +34,7 @@ export default function MemoryGame() {
   };
 
   // Fetch Pokemon
-  const fetchPokemon = async () => {
+  const fetchPokemon = useCallback(async () => {
     try {
       // Get total count first to know the range
       const countResponse = await fetch(
@@ -95,11 +95,11 @@ export default function MemoryGame() {
       setError("Failed to fetch Pokemon");
       console.error("Error fetching Pokemon:", err);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchPokemon();
-  }, []);
+  }, [fetchPokemon]);
 
   // Handle card click function
   const handleCardClick = (clickedCard) => {
@@ -154,7 +154,7 @@ export default function MemoryGame() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="relative flex h-full w-screen flex-col items-center justify-center overflow-auto xl:h-screen xl:overflow-hidden">
+    <div className="relative flex min-h-screen w-full max-w-full flex-col items-center overflow-y-auto overflow-x-hidden">
       <AudioPlayer />
       <Navbar />
 
@@ -169,11 +169,11 @@ export default function MemoryGame() {
       </div>
 
       {/* Body */}
-      <div className="xl:h-168 relative z-10 mt-24 flex flex-col items-center">
+      <div className="max-w-360 relative z-10 mt-24 flex w-full flex-col items-center px-3 pb-8 sm:px-6">
         {/* Game Header */}
-        <div className="xl:w-310 w-full px-8">
-          <div className="flex flex-row items-center justify-between gap-4">
-            <div className="flex flex-row items-center justify-center gap-6">
+        <div className="w-full pb-8">
+          <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
+            <div className="flex w-full items-center justify-center gap-2 lg:w-auto lg:gap-6">
               <div className="stat">Score: {score}</div>
               <div className="stat">Attempts: {attempts}</div>
               <div className="stat">
@@ -214,19 +214,19 @@ export default function MemoryGame() {
         </Dialog>
 
         {/* Game Board */}
-        <div className="xl:max-w-352 relative z-10 -m-2 flex w-full flex-wrap justify-center">
+        <div className="relative z-10 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
           {pokemonCards.map((card) => (
             <div
               key={card.cardId}
               onClick={() => handleCardClick(card)}
-              className="h-[18.563rem] w-[15.3rem] cursor-pointer"
+              className="h-82.5 w-68 cursor-pointer"
             >
               <div
-                className={`transform-style-preserve-3d transition-transform duration-700 ${isCardFlipped(card) ? "rotate-y-180" : ""} ${!isCardFlipped(card) ? "hover:scale-105" : ""}`}
+                className={`transform-style-preserve-3d relative h-full w-full transition-transform duration-700 ${isCardFlipped(card) ? "rotate-y-180" : ""} ${!isCardFlipped(card) ? "hover:scale-105" : ""}`}
               >
                 {/* Card Back - Visible when not flipped */}
-                <div className="backface-hidden">
-                  <div className="bg-pokeball-blue w-68 scale-85 h-82.5 rounded-lg border-2 border-gray-300 p-4 shadow-lg transition-shadow hover:shadow-xl">
+                <div className="backface-hidden absolute inset-0">
+                  <div className="bg-pokeball-blue h-82.5 w-68 rounded-lg border-2 border-gray-300 p-4 shadow-lg transition-shadow hover:shadow-xl">
                     <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-lg border-4 border-white">
                       <img
                         src="/assets/Pokemon.svg"
@@ -242,7 +242,7 @@ export default function MemoryGame() {
 
                 {/* Card Front - Only visible when flipped */}
                 <div className="backface-hidden rotate-y-180 absolute inset-0">
-                  <PokemonCard pokemon={card} className="scale-85" />
+                  <PokemonCard pokemon={card} />
                 </div>
               </div>
             </div>

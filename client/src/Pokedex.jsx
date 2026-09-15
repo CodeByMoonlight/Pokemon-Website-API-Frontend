@@ -126,7 +126,7 @@ export default function Pokedex() {
         <button
           key={i}
           onClick={() => goToPage(i)}
-          className={`h-10 w-10 rounded-md transition-colors ${
+          className={`h-9 w-9 rounded-md transition-colors ${
             i === currentPage
               ? "bg-pokeball-blue cursor-not-allowed text-white"
               : "text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue cursor-pointer border-2 bg-white hover:text-white"
@@ -138,12 +138,12 @@ export default function Pokedex() {
     }
 
     return (
-      <div className="flex items-center justify-center gap-4 py-4 transition-colors duration-300 ease-in-out">
+      <div className="col-start-2 col-end-3 flex items-center justify-center gap-2 py-4 transition-colors duration-300 ease-in-out md:gap-4">
         {/* Left Arrow */}
         {currentPage > 1 && (
           <button
             onClick={handlePreviousPage}
-            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
+            className="border-text-tertiary hover:bg-pokeball-blue h-9 w-9 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
           >
             <FaChevronLeft className="m-auto text-xs sm:text-sm xl:text-sm" />
           </button>
@@ -153,7 +153,7 @@ export default function Pokedex() {
           <>
             <button
               onClick={() => goToPage(1)}
-              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
+              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-9 w-9 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
             >
               1
             </button>
@@ -168,7 +168,7 @@ export default function Pokedex() {
             {endPage < totalPages - 1 && <span className="px-2">...</span>}
             <button
               onClick={() => goToPage(totalPages)}
-              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
+              className="text-text-primary border-text-tertiary hover:bg-pokeball-blue hover:border-pokeball-blue h-9 w-9 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
             >
               {totalPages}
             </button>
@@ -179,7 +179,7 @@ export default function Pokedex() {
         {currentPage < totalPages && (
           <button
             onClick={handleNextPage}
-            className="border-text-tertiary hover:bg-pokeball-blue h-10 w-10 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
+            className="border-text-tertiary hover:bg-pokeball-blue h-9 w-9 cursor-pointer rounded-md border-2 bg-white transition-colors duration-300 ease-in-out hover:text-white"
           >
             <FaChevronRight className="m-auto text-xs sm:text-sm xl:text-sm" />
           </button>
@@ -271,7 +271,7 @@ export default function Pokedex() {
           <img
             src="/assets/pokedex_img.gif"
             alt="hero_img"
-            className="h-100 w-screen bg-cover bg-center object-cover object-center blur-sm"
+            className="h-120 md:h-100 w-screen bg-cover bg-center object-cover object-center blur-sm"
           />
           <div className="bg-text-tertiary absolute inset-0 mix-blend-multiply"></div>
         </div>
@@ -296,8 +296,8 @@ export default function Pokedex() {
       </div>
 
       {/* Body */}
-      <div className="flex max-w-6xl flex-col items-center justify-center">
-        <div className="flex w-full flex-row items-center justify-between py-4">
+      <div className="grid md:grid-cols-[minmax(0,3fr)_minmax(0,72rem)_minmax(0,3fr)]">
+        <div className="col-start-2 col-end-3 flex justify-between p-4">
           <h3 className="text-text-primary text-2xl font-bold">Pokémon List</h3>
           {/* Upper Pagination & Arrows - Show if user is not searching*/}
           {!isSearching && (
@@ -318,7 +318,7 @@ export default function Pokedex() {
         </div>
 
         {/* Pokemon Cards */}
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="col-start-2 col-end-3 flex flex-wrap justify-center gap-4">
           {displayedPokemon?.map((poke, index) => (
             <Link to={`/view/${poke.id}`} key={index}>
               <PokemonCard pokemon={poke} />

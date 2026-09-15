@@ -327,6 +327,12 @@ body {
   display: flex;
   min-width: 20rem;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 /* Typography */
@@ -396,7 +402,7 @@ body {
   color: #313131;
   font-family: "Roboto", sans-serif;
   width: fit-content;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border-radius: 12rem;
   letter-spacing: 0.125rem;
   justify-content: center;

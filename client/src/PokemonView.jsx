@@ -210,7 +210,7 @@ export default function PokemonView() {
 
   return (
     <div
-      className={`flex flex-col gap-4 bg-gradient-to-r sm:gap-8 md:gap-16 lg:flex-row lg:gap-24 xl:gap-36 ${typeColors[primaryType]} relative min-h-screen w-screen items-center justify-center p-4 xl:p-0`}
+      className={`bg-linear-to-r flex min-h-screen w-full max-w-full flex-col items-center justify-center gap-4 overflow-x-hidden py-4 sm:gap-8 md:gap-16 lg:flex-row lg:gap-24 xl:gap-32 ${typeColors[primaryType]}`}
     >
       <div className="pointer-events-none absolute right-0 top-0 z-0 hidden h-full w-1/2 overflow-hidden xl:block">
         <img
@@ -243,7 +243,7 @@ export default function PokemonView() {
       {/*Pokemon Info*/}
       <div className="relative z-10">
         {/*Pokemon Header*/}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-4 lg:px-0">
           <div className="flex flex-row items-center gap-2 sm:gap-4">
             <Link to={`/pokedex/page/1`}>
               <div className="p-1 transition-transform duration-300 hover:scale-110 hover:rounded-full hover:bg-[rgba(255,255,255,0.5)] hover:shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)]">
@@ -269,7 +269,7 @@ export default function PokemonView() {
         {/*Main Details*/}
         <div className="mt-4 flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-5">
           {/*Pokemon Image*/}
-          <div className="relative flex h-fit w-full max-w-[18.75rem] flex-row sm:max-w-[20rem] lg:max-w-[28rem]">
+          <div className="max-w-75 relative flex h-fit w-full flex-row sm:max-w-[20rem] lg:max-w-md">
             <img
               src={`/assets/${typeIcons[primaryType]}`}
               alt={pokemon.en_name}
@@ -292,7 +292,7 @@ export default function PokemonView() {
           </div>
 
           {/*Pokemon Details*/}
-          <div className="flex h-auto w-screen flex-col overflow-hidden px-2 sm:px-5 lg:h-[40rem] lg:w-[46rem]">
+          <div className="lg:h-160 lg:w-184 flex h-auto w-full min-w-0 max-w-full flex-col overflow-hidden px-4 lg:px-0">
             <Tabs defaultValue="about" className="">
               <TabsList className="">
                 <TabsTrigger
@@ -325,7 +325,7 @@ export default function PokemonView() {
                     <h2 className="text-left text-base font-bold sm:text-lg">
                       Details
                     </h2>
-                    <div className="flex flex-wrap gap-5">
+                    <div className="flex flex-wrap justify-center gap-5 bg-amber-300 md:justify-normal">
                       {Object.entries(pokemon.details || {}).map(
                         ([key, value], index) => {
                           if (Array.isArray(value)) {
@@ -480,7 +480,7 @@ export default function PokemonView() {
       </div>
 
       {/*Pokemon Navigation*/}
-      <div className="hidden lg:block">
+      <div className="hidden bg-amber-400 lg:block">
         {pokemon.id < 10276 ? (
           <Link to={`/view/${pokemon.id + 1}`}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-110">

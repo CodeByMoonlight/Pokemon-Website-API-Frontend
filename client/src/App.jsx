@@ -119,11 +119,11 @@ function App() {
           alt="transition_img"
           className="absolute left-0 top-36 h-full w-full object-cover md:top-40 lg:top-56 xl:top-60"
         />
-        <div className="xl:-translate-y-68 absolute top-1/2 flex h-fit -translate-y-24 flex-col items-center justify-center gap-3 text-center text-white [text-shadow:4px_4px_3px_rgba(0,0,0,0.4)] sm:-translate-y-36 lg:-translate-y-44">
-          <h2 className="Russo-One text-4xl font-bold sm:text-5xl md:text-6xl xl:text-7xl">
+        <div className="xl:-translate-y-68 absolute top-1/2 flex h-fit -translate-y-24 flex-col items-center justify-center gap-3 px-4 text-center text-white [text-shadow:4px_4px_3px_rgba(0,0,0,0.4)] sm:-translate-y-36 lg:-translate-y-44">
+          <h2 className="Russo-One leading-14 text-5xl font-bold sm:text-5xl md:text-6xl xl:text-7xl">
             Catch 'Em All Online
           </h2>
-          <p className="max-w-3/5 mb-4 font-semibold leading-7 sm:text-base md:text-lg md:leading-8">
+          <p className="md:max-w-160 mb-4 text-lg font-semibold leading-7 md:text-xl md:leading-8">
             Explore the complete Pokédex, challenge yourself with fun memory
             games, and see just how well you know your favorite Pokémon.
           </p>
