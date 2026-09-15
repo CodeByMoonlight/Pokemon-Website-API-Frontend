@@ -325,7 +325,7 @@ export default function PokemonView() {
                     <h2 className="text-left text-base font-bold sm:text-lg">
                       Details
                     </h2>
-                    <div className="flex flex-wrap justify-center gap-5 bg-amber-300 md:justify-normal">
+                    <div className="flex flex-wrap justify-center gap-5 md:justify-normal">
                       {Object.entries(pokemon.details || {}).map(
                         ([key, value], index) => {
                           if (Array.isArray(value)) {
