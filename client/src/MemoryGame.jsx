@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import PokemonCard from "./components/PokemonCard.jsx";
+import MemoryCard from "./components/MemoryCard.jsx";
 import Navbar from "./components/Navbar.jsx";
 import AudioPlayer from "./components/AudioPlayer.jsx";
 import {
@@ -182,7 +182,7 @@ export default function MemoryGame() {
             </div>
             <button
               onClick={resetGame}
-              className="main-btn rounded-lg px-5 py-3 text-sm backdrop-blur-sm sm:text-base"
+              className="main-btn text-sm! sm:text-base! rounded-lg px-5 py-3 backdrop-blur-sm"
             >
               Reset Game
             </button>
@@ -193,7 +193,7 @@ export default function MemoryGame() {
         <Dialog open={gameWon} onOpenChange={setGameWon}>
           <DialogContent>
             <DialogHeader className="flex flex-col items-center justify-center">
-              <DialogTitle className="pb-2 text-3xl font-bold">
+              <DialogTitle className="pb-2 text-xl font-bold md:text-3xl">
                 🎉 Congratulations! 🎉
               </DialogTitle>
               <DialogDescription className="flex flex-col items-center justify-center gap-4">
@@ -203,7 +203,7 @@ export default function MemoryGame() {
                 </p>
                 <button
                   onClick={resetGame}
-                  className="main-btn rounded-lg px-5 py-2 text-sm sm:text-base md:text-lg"
+                  className="main-btn text-sm! sm:text-base! md:text-lg! rounded-lg px-5 py-2"
                 >
                   Play Again
                 </button>
@@ -214,26 +214,27 @@ export default function MemoryGame() {
         </Dialog>
 
         {/* Game Board */}
-        <div className="relative z-10 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="relative z-10 grid w-full grid-cols-2 gap-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
           {pokemonCards.map((card) => (
             <div
               key={card.cardId}
               onClick={() => handleCardClick(card)}
-              className="h-82.5 w-68 cursor-pointer"
+              className="min-w-0 cursor-pointer"
+              style={{ aspectRatio: "272 / 330" }}
             >
               <div
                 className={`transform-style-preserve-3d relative h-full w-full transition-transform duration-700 ${isCardFlipped(card) ? "rotate-y-180" : ""} ${!isCardFlipped(card) ? "hover:scale-105" : ""}`}
               >
                 {/* Card Back - Visible when not flipped */}
                 <div className="backface-hidden absolute inset-0">
-                  <div className="bg-pokeball-blue h-82.5 w-68 rounded-lg border-2 border-gray-300 p-4 shadow-lg transition-shadow hover:shadow-xl">
+                  <div className="bg-pokeball-blue flex h-full w-full items-center justify-center rounded-lg border-2 border-gray-300 p-2 shadow-lg transition-shadow hover:shadow-xl sm:p-4">
                     <div className="flex h-full w-full flex-col items-center justify-center gap-2 rounded-lg border-4 border-white">
                       <img
                         src="/assets/Pokemon.svg"
                         alt="pokeball"
                         className="mx-auto mb-2 h-16 w-16"
                       />
-                      <p className="text-center font-medium text-white">
+                      <p className="text-center text-sm font-medium text-white">
                         Click to Flip
                       </p>
                     </div>
@@ -242,7 +243,7 @@ export default function MemoryGame() {
 
                 {/* Card Front - Only visible when flipped */}
                 <div className="backface-hidden rotate-y-180 absolute inset-0">
-                  <PokemonCard pokemon={card} />
+                  <MemoryCard pokemon={card} />
                 </div>
               </div>
             </div>

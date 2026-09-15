@@ -459,9 +459,9 @@ body {
 /* Pokemon View Styling */
 .stat {
   background-color: rgba(255, 255, 255, 0.6);
-  padding: 0.6em 1.2em;
+  padding: 0.5rem;
   border-radius: 0.5rem;
-  font-size: 1em;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-text-primary);
   backdrop-filter: blur(0.25rem);
