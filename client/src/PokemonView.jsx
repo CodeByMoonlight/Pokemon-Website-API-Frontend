@@ -168,7 +168,7 @@ export default function PokemonView() {
           const IconComponent = item.icon;
           return (
             <div key={index} className="gender-container">
-              <IconComponent />
+              <IconComponent className="h-3 w-3" />
               <p>{item.text}</p>
             </div>
           );
@@ -210,7 +210,7 @@ export default function PokemonView() {
 
   return (
     <div
-      className={`bg-linear-to-r flex min-h-screen w-full max-w-full flex-col items-center justify-center gap-4 overflow-x-hidden py-4 sm:gap-8 md:gap-16 lg:flex-row lg:gap-24 xl:gap-32 ${typeColors[primaryType]}`}
+      className={`bg-linear-to-r flex min-h-screen w-full max-w-full flex-col items-center justify-center gap-4 overflow-x-hidden py-4 sm:gap-8 lg:flex-row xl:gap-32 ${typeColors[primaryType]}`}
     >
       <div className="pointer-events-none absolute right-0 top-0 z-0 hidden h-full w-1/2 overflow-hidden xl:block">
         <img
@@ -292,7 +292,7 @@ export default function PokemonView() {
           </div>
 
           {/*Pokemon Details*/}
-          <div className="lg:h-160 lg:w-172 flex h-auto w-full min-w-0 max-w-full flex-col px-4 lg:px-0">
+          <div className="lg:h-160 lg:w-184 flex h-auto w-full min-w-0 max-w-full flex-col px-4 lg:px-0">
             <Tabs defaultValue="about" className="">
               <TabsList className="">
                 <TabsTrigger
@@ -325,14 +325,14 @@ export default function PokemonView() {
                     <h2 className="text-left text-base font-bold sm:text-lg">
                       Details
                     </h2>
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
+                    <div className="grid auto-rows-fr grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
                       {Object.entries(pokemon.details || {}).map(
                         ([key, value], index) => {
                           if (Array.isArray(value)) {
                             return (value || []).map((item, idx) => (
                               <div
                                 key={`${index}-${idx}`}
-                                className="flex h-fit min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
+                                className="flex h-full min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
                               >
                                 <p className="truncate text-sm font-semibold capitalize sm:text-base">
                                   {item}
@@ -346,7 +346,7 @@ export default function PokemonView() {
                             return (
                               <div
                                 key={index}
-                                className="flex h-fit min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
+                                className="flex h-full min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
                               >
                                 <div className="flex flex-row justify-center gap-2 text-sm font-semibold sm:text-base">
                                   {key === "gender"
