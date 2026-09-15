@@ -292,7 +292,7 @@ export default function PokemonView() {
           </div>
 
           {/*Pokemon Details*/}
-          <div className="lg:h-160 lg:w-184 flex h-auto w-full min-w-0 max-w-full flex-col overflow-hidden px-4 lg:px-0">
+          <div className="lg:h-160 lg:w-172 flex h-auto w-full min-w-0 max-w-full flex-col px-4 lg:px-0">
             <Tabs defaultValue="about" className="">
               <TabsList className="">
                 <TabsTrigger
@@ -325,44 +325,37 @@ export default function PokemonView() {
                     <h2 className="text-left text-base font-bold sm:text-lg">
                       Details
                     </h2>
-                    <div className="flex flex-wrap justify-center gap-5 md:justify-normal">
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
                       {Object.entries(pokemon.details || {}).map(
                         ([key, value], index) => {
                           if (Array.isArray(value)) {
-                            return (
-                              <div key={index} className="flex flex-row gap-5">
-                                {(value || []).map((item, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="flex w-32 flex-col gap-2 rounded-lg bg-white p-2 py-3 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105 sm:w-36 lg:w-40"
-                                  >
-                                    <p className="text-sm font-semibold capitalize sm:text-base">
-                                      {key}
-                                    </p>
-                                    <p
-                                      className="text-xs capitalize sm:text-sm"
-                                      key={idx}
-                                    >
-                                      {item}
-                                    </p>
-                                  </div>
-                                ))}
+                            return (value || []).map((item, idx) => (
+                              <div
+                                key={`${index}-${idx}`}
+                                className="flex h-fit min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
+                              >
+                                <p className="truncate text-sm font-semibold capitalize sm:text-base">
+                                  {item}
+                                </p>
+                                <p className="text-xs capitalize text-gray-500">
+                                  {key}
+                                </p>
                               </div>
-                            );
+                            ));
                           } else {
                             return (
                               <div
                                 key={index}
-                                className="flex w-32 flex-col gap-2 rounded-lg bg-white p-2 py-3 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-110 sm:w-36 lg:w-40"
+                                className="flex h-fit min-w-0 flex-col justify-center gap-1 rounded-lg bg-white p-2 shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-105"
                               >
-                                <p className="text-sm font-semibold capitalize sm:text-base">
-                                  {key}
-                                </p>
-                                <div className="flex flex-row justify-center gap-4 text-xs sm:text-sm">
+                                <div className="flex flex-row justify-center gap-2 text-sm font-semibold sm:text-base">
                                   {key === "gender"
                                     ? getGenderDisplay(value)
                                     : value}
                                 </div>
+                                <p className="text-xs capitalize text-gray-500">
+                                  {key}
+                                </p>
                               </div>
                             );
                           }
@@ -480,7 +473,7 @@ export default function PokemonView() {
       </div>
 
       {/*Pokemon Navigation*/}
-      <div className="hidden bg-amber-400 lg:block">
+      <div className="hidden lg:block">
         {pokemon.id < 10276 ? (
           <Link to={`/view/${pokemon.id + 1}`}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[5px_5px_5px_0px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-110">
